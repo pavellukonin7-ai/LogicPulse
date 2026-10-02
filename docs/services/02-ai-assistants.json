@@ -1,0 +1,10 @@
+{
+  "slug": "ai-assistants",
+  "name": "Разработка AI-ассистентов и чат-ботов",
+  "description": "Ассистенты для клиентов и сотрудников с подключением к документам, базам знаний и внутренним системам.",
+  "price_min": 100000,
+  "price_max": 400000,
+  "prices_approved": false,
+  "price_review_note": "",
+  "active": true
+}

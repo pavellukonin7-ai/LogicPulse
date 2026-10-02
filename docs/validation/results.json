@@ -1,0 +1,31 @@
+{
+  "swagger_services": 5,
+  "request_saved": true,
+  "draft_prices_hidden": true,
+  "server_error_retains_form": true,
+  "mobile_overflow": false,
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4173/assets/index-YqisjDcb.css",
+      "status": 200,
+      "type": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4173/assets/index-GP_mZaYI.js",
+      "status": 200,
+      "type": "text/javascript"
+    },
+    {
+      "url": "http://127.0.0.1:4173/assets/index-YqisjDcb.css",
+      "status": 200,
+      "type": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4173/assets/index-GP_mZaYI.js",
+      "status": 200,
+      "type": "text/javascript"
+    }
+  ],
+  "javascript_errors": [],
+  "database": "isolated SQLite, not VPS PostgreSQL"
+}

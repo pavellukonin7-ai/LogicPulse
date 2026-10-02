@@ -1,0 +1,10 @@
+{
+  "slug": "business-automation",
+  "name": "Автоматизация бизнес-процессов",
+  "description": "Автоматизация обработки заявок, документов, отчётности и повторяющихся операций.",
+  "price_min": 120000,
+  "price_max": 500000,
+  "prices_approved": false,
+  "price_review_note": "",
+  "active": true
+}

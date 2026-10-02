@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "viewports": [
+    1440,
+    390,
+    320,
+    768
+  ],
+  "services": 5,
+  "checks": [
+    "fonts and images load",
+    "no horizontal overflow",
+    "native service disclosure",
+    "service selection",
+    "lead success",
+    "lead retry preserves idempotency",
+    "logged-in navigation",
+    "mobile menu",
+    "catalog error and retry",
+    "scroll-linked ring and footer movement",
+    "exact reverse scroll",
+    "heading reveal without drift",
+    "reduced motion and live preference change",
+    "mobile scroll motion"
+  ],
+  "api": "mocked locally; no live lead sent",
+  "javascriptErrors": [],
+  "failedAssets": []
+}

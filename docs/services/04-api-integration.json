@@ -1,0 +1,10 @@
+{
+  "slug": "api-integration",
+  "name": "Интеграция систем и API",
+  "description": "Обмен данными между CRM, сайтом, мессенджерами и другими сервисами компании.",
+  "price_min": 60000,
+  "price_max": 250000,
+  "prices_approved": false,
+  "price_review_note": "",
+  "active": true
+}

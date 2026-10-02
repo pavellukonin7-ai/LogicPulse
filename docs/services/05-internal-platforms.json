@@ -1,0 +1,10 @@
+{
+  "slug": "internal-platforms",
+  "name": "Разработка внутренних бизнес-систем",
+  "description": "Индивидуальные системы управления задачами, клиентами, операциями и аналитикой.",
+  "price_min": 300000,
+  "price_max": 1200000,
+  "prices_approved": false,
+  "price_review_note": "",
+  "active": true
+}

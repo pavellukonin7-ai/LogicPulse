@@ -1,0 +1,42 @@
+{
+  "backend/app/models.py": {
+    "before": "e4dcc325560a3449332b960ab79bd887254fb60c5e1db1239a1de8b831bd35a1",
+    "after": "754d1268073d75c9c3193593597f11ee09be205719b9e517fef86b3d130cf5dc"
+  },
+  "backend/app/schemas.py": {
+    "before": "ef6696726c338188694cd63ef4ad87c0e663afdf156ae172a832aedb56ca99f7",
+    "after": "1adf1a9ce960a7a49e671e7d4c5428ae8abaafae92c44877e7a14b24a0abf858"
+  },
+  "backend/app/main.py": {
+    "before": "6650000631af072cc5d0ca38dd530ba10c125117b76fc27029aa7a2a4c0791e0",
+    "after": "814d503ff030a6c5590b408dd22cf98a3e70906606793d262ccdfa9beac9e91c"
+  },
+  "frontend/app.js": {
+    "before": "fc4932465e7c0c1de3ef1c0eb0274511445e608a0c01150dc1d0fdc1dce6748a",
+    "after": "e26633db373621921dbfb8c3657666727bf6db88ed7bbf068c0156ccb9c02d69"
+  },
+  "frontend/admin.js": {
+    "before": "92953340d6023e5fd6d6390a4053f16b75e356f90dc195c5adcef774dd6c18b4",
+    "after": "6f15cacd9bf9aef0cf16d4feff1941c12bd37638c4bfa8dadbc37281460e5775"
+  },
+  "frontend/admin.html": {
+    "before": "9022f400c64cf5aa37794197f89987b8aea20174cad9aa0b96a17dab5497e5a5",
+    "after": "e3894ffa3e399edb3db2e12f26b2201c7b1bcc0754f0d6b6c140e4cdfece522f"
+  },
+  "frontend/index.html": {
+    "before": "7e5720e3a49e33e9e171a68d7942023cecd6a99e9d57fa72a70f0d8c614d626a",
+    "after": "8ffa01814a21148fbe58447b6cca74951957edc8622aad426f7968726343d6b8"
+  },
+  "frontend/service-card.js": {
+    "before": null,
+    "after": "08a5c4e6adf9ffe9fa8a3aacb8d964147c8e47d075da06e4e55d6f5a785eeb92"
+  },
+  "frontend/service-cards.css": {
+    "before": null,
+    "after": "d06b1c8cddf40ec5d54add26e91911f56edc2508f8c7ca330bfd377e0d8aab62"
+  },
+  "frontend/service-templates.js": {
+    "before": null,
+    "after": "4c93cbf2e8dd1e00dc4704e777bf6f338295ef3967f0003de317b7b8d4d60345"
+  }
+}

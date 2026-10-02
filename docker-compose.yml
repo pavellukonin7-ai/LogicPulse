@@ -1,0 +1,188 @@
+name: logicpulse
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+x-common: &common
+  restart: unless-stopped
+  logging: *logging
+services:
+  nginx:
+    <<: *common
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./site:/usr/share/nginx/html:ro
+      - ./registry-ui:/usr/share/nginx/registry:ro
+      - ./auth:/auth:ro
+      - ./certbot/www:/var/www/certbot:ro
+      - ./certbot/conf:/etc/letsencrypt:ro
+    networks: [frontend]
+    healthcheck:
+      test: [CMD-SHELL, "wget -q -O /dev/null http://127.0.0.1:8081/healthz || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
+      com.centurylinklabs.watchtower.scope: logicpulse
+  backend:
+    <<: *common
+    build: ./backend
+    image: logicpulse-backend:1.2.0
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?Run scripts/init-env.sh}
+      POSTGRES_USER: ${POSTGRES_USER:?Run scripts/init-env.sh}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run scripts/init-env.sh}
+      DB_HOST: db
+      ADMIN_API_KEY: ${ADMIN_API_KEY:?Run scripts/prepare-app.sh}
+      APP_ENV: production
+      APP_ORIGIN: https://${DOMAIN:?Run scripts/init-env.sh}
+      TELEGRAM_ENABLED: ${TELEGRAM_ENABLED:-false}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks: [frontend, database]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=5)"]
+      interval: 10s
+      timeout: 6s
+      retries: 6
+      start_period: 20s
+    labels:
+      com.centurylinklabs.watchtower.enable: "false"
+  telegram-worker:
+    <<: *common
+    image: logicpulse-backend:1.2.0
+    command: [python, -m, app.telegram_worker]
+    volumes:
+      - /run/logicpulse-telegram:/run/logicpulse-telegram:ro
+    stop_grace_period: 30s
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?Run scripts/init-env.sh}
+      POSTGRES_USER: ${POSTGRES_USER:?Run scripts/init-env.sh}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run scripts/init-env.sh}
+      DB_HOST: db
+      TELEGRAM_ENABLED: ${TELEGRAM_ENABLED:-false}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
+      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID:-}
+      BOT_PROXY: ${BOT_PROXY:-}
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks: [frontend, database]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -c, "import os,time; assert time.time()-os.stat('/tmp/telegram-worker.heartbeat').st_mtime < 90"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    labels:
+      com.centurylinklabs.watchtower.enable: "false"
+  postgres:
+    <<: *common
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?Run scripts/init-env.sh}
+      POSTGRES_USER: ${POSTGRES_USER:?Run scripts/init-env.sh}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run scripts/init-env.sh}
+      POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      database:
+        aliases: [db]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    labels:
+      com.centurylinklabs.watchtower.enable: "false"
+  pgadmin:
+    <<: *common
+    profiles: [maintenance]
+    ports: ["127.0.0.1:5050:80"]
+    image: dpage/pgadmin4:9.18
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:?Run scripts/init-env.sh}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:?Run scripts/init-env.sh}
+      PGADMIN_DISABLE_POSTFIX: "true"
+      PGADMIN_CONFIG_PROXY_X_FOR_COUNT: "1"
+      PGADMIN_CONFIG_PROXY_X_PROTO_COUNT: "1"
+      PGADMIN_CONFIG_PROXY_X_HOST_COUNT: "1"
+      PGADMIN_CONFIG_PROXY_X_PORT_COUNT: "1"
+      PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: "True"
+      PGADMIN_CONFIG_SESSION_COOKIE_SECURE: "False"
+      PGADMIN_CONFIG_SESSION_COOKIE_SAMESITE: "'Lax'"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+      - ./pgadmin/servers.json:/pgadmin4/servers.json:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks: [frontend, database]
+    labels:
+      com.centurylinklabs.watchtower.enable: "false"
+  registry:
+    <<: *common
+    profiles: [maintenance]
+    image: registry:3
+    environment:
+      REGISTRY_HTTP_ADDR: "0.0.0.0:5000"
+      REGISTRY_HTTP_HOST: https://${DOMAIN:?Run scripts/init-env.sh}:5000
+      REGISTRY_HTTP_SECRET: ${REGISTRY_HTTP_SECRET:?Run scripts/init-env.sh}
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: LogicPulse Registry
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /var/lib/registry
+      REGISTRY_STORAGE_DELETE_ENABLED: "false"
+    volumes:
+      - registry_data:/var/lib/registry
+      - ./auth:/auth:ro
+    networks: [frontend]
+    labels:
+      com.centurylinklabs.watchtower.enable: "false"
+  watchtower:
+    <<: *common
+    image: nickfedor/watchtower:1.22.3
+    environment:
+      TZ: Europe/Moscow
+      WATCHTOWER_SCOPE: logicpulse
+      WATCHTOWER_MONITOR_ONLY: "true"
+      WATCHTOWER_LABEL_ENABLE: "true"
+      WATCHTOWER_NO_PULL: "true"
+      WATCHTOWER_POLL_INTERVAL: "86400"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks: [frontend]
+    labels:
+      com.centurylinklabs.watchtower.enable: "false"
+  certbot:
+    image: certbot/certbot:latest
+    profiles: [ops]
+    volumes:
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    networks: [frontend]
+    logging: *logging
+volumes:
+  postgres_data:
+  pgadmin_data:
+  registry_data:
+networks:
+  frontend:
+  database:
+    internal: true

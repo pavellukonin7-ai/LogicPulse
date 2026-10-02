@@ -1,0 +1,35 @@
+{
+  "result": "PASS",
+  "viewports": [
+    1440,
+    390,
+    320,
+    768
+  ],
+  "services": 5,
+  "checks": [
+    "fonts and images load",
+    "local Chinese font",
+    "no horizontal overflow",
+    "native service disclosure",
+    "service selection",
+    "lead success",
+    "lead retry preserves idempotency",
+    "logged-in navigation",
+    "mobile menu",
+    "catalog error and retry",
+    "RU EN ZH complete standard translations",
+    "language persistence and keyboard switching",
+    "44px language controls",
+    "form values and expanded services preserved",
+    "localized app-owned validation",
+    "localized password reveal",
+    "retry idempotency across languages",
+    "account privacy and remember-me localized",
+    "custom API text preserved",
+    "unapproved prices remain hidden"
+  ],
+  "api": "mocked locally; no live lead sent",
+  "javascriptErrors": [],
+  "failedAssets": []
+}

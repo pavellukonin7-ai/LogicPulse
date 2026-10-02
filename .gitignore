@@ -1,0 +1,20 @@
+/.env
+/auth/*
+!/auth/.gitkeep
+/backups/*
+!/backups/.gitkeep
+/certbot/conf/*
+/certbot/www/*
+/nginx/conf.d/*.conf
+/pgadmin/servers.json
+/docker-compose.lock.yml
+*.log
+# LogicPulse application builds and local test state
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+.pytest_cache/
+premium-audit.json
+*.db
+*.db-*
+.venv/

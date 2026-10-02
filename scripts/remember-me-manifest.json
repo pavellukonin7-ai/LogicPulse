@@ -1,0 +1,22 @@
+{
+  "backend/app/auth.py": {
+    "before": "a38782f8ae4b50170867723f9438a1676a02493a193758981f4a5afa2ad9524e",
+    "after": "1235cb72d55eb8e021cbe112b8085651d937108a1577d0e982896d85e7a6e024"
+  },
+  "frontend/account.html": {
+    "before": "9c233acbe6690d1649cb51bbc3f4a2bd12d2146fb699cbf8d09f61a7f4a3f563",
+    "after": "1a63c0a3db3fadaf01086501723ffb11aa74cb42c3c410038e88a7e8d50d9c39"
+  },
+  "frontend/account.js": {
+    "before": "96dfb64bd311f7288dbecd3dcadab7ad471a27ac13b6cd9cde868b7722beb55e",
+    "after": "8fe60fdc6d46d2b67b56611525047cfe82e2c5acec7c0ba4c338b5e681b5cf95"
+  },
+  "frontend/remember-me.css": {
+    "before": null,
+    "after": "6fed5be913b0ba603c306eed424be000e44fb8d59d9720409ed6b4111e73aaf0"
+  },
+  "frontend/public/privacy.html": {
+    "before": "ad9c58921d81780221a3d3163cda072999093034faf3ce3e445da20c42c3296b",
+    "after": "abbb721fd5d8446f9f1de149c0ea77f8a95d6011fdf6bbba577dda6e00af227e"
+  }
+}

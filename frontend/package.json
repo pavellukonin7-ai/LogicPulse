@@ -1,0 +1,15 @@
+{
+  "name": "logicpulse-frontend",
+  "version": "1.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node copy-swagger.mjs && vite --host 0.0.0.0",
+    "build": "node copy-swagger.mjs && vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "swagger-ui-dist": "5.33.0",
+    "vite": "^7.3.0"
+  }
+}
