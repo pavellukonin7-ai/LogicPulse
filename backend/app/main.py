@@ -18,6 +18,7 @@ from .models import ProjectRequest, Service, TelegramDelivery, ArchivedService, 
 from .auth import admin, router as auth_router
 from .priorities import score_lead
 from .schemas import Receipt, RequestInput, ServiceAdmin, ServiceInput, ServicePublic
+from .github_projects import router as github_projects_router
 
 logger = logging.getLogger('logicpulse')
 admin_key = os.environ.get('ADMIN_API_KEY', '')
@@ -50,7 +51,8 @@ async def headers(request: Request, call_next):
         if (origin and origin != expected) or request.headers.get('sec-fetch-site') == 'cross-site':
             return JSONResponse(status_code=403, content={'detail': 'Запрос с другого сайта отклонён.'})
     response = await call_next(request)
-    response.headers['Cache-Control'] = 'no-store'
+    response.headers['Cache-Control'] = ('public, max-age=300, stale-while-revalidate=3600'
+        if request.url.path == '/api/projects' and request.method in ('GET', 'HEAD') else 'no-store')
     response.headers['X-Content-Type-Options'] = 'nosniff'
     return response
 
@@ -232,3 +234,4 @@ def retry_telegram(request_id: str, db: DB):
 
 from .metrics import router as metrics_router
 app.include_router(metrics_router)
+app.include_router(github_projects_router)

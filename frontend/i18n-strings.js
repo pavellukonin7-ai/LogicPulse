@@ -167,6 +167,50 @@ export const translations = {
     "en": "LogicPulse projects",
     "zh": "LogicPulse 项目"
   },
+  "Рабочие AI-системы, автоматизация, ассистенты и инфраструктурные решения.": {
+    "en": "Production AI systems, automation, assistants and infrastructure solutions.",
+    "zh": "可投入实际使用的 AI 系统、自动化、智能助手与基础设施解决方案。"
+  },
+  "Открыть проект {name} на GitHub": {
+    "en": "Open {name} on GitHub",
+    "zh": "在 GitHub 上打开 {name}"
+  },
+  "Открытый проект в GitHub.": {
+    "en": "An open project on GitHub.",
+    "zh": "GitHub 上的开源项目。"
+  },
+  "Открытый код": {
+    "en": "Open source",
+    "zh": "开源"
+  },
+  "Обновлён {date}": {
+    "en": "Updated {date}",
+    "zh": "更新于 {date}"
+  },
+  "Архив": {
+    "en": "Archived",
+    "zh": "已归档"
+  },
+  "Синхронизировано с GitHub": {
+    "en": "Synced with GitHub",
+    "zh": "已与 GitHub 同步"
+  },
+  "Показана сохранённая копия": {
+    "en": "Showing the saved copy",
+    "zh": "当前显示已保存版本"
+  },
+  "{count} публичных проектов · {source}": {
+    "en": "{count} public projects · {source}",
+    "zh": "{count} 个公开项目 · {source}"
+  },
+  "Посмотреть проекты на GitHub ↗": {
+    "en": "View projects on GitHub ↗",
+    "zh": "在 GitHub 查看项目 ↗"
+  },
+  "Все репозитории на GitHub ↗": {
+    "en": "All repositories on GitHub ↗",
+    "zh": "GitHub 上的全部仓库 ↗"
+  },
   "Автоматизация документов и PDF-отчётов.": {
     "en": "Automated documents and PDF reports.",
     "zh": "自动生成文档与 PDF 报告。"

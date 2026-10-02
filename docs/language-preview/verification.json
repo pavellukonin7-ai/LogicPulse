@@ -7,12 +7,14 @@
     768
   ],
   "services": 5,
+  "projects": 13,
   "checks": [
     "fonts and images load",
     "local Chinese font",
     "no horizontal overflow",
     "native service disclosure",
     "service selection",
+    "all public GitHub projects",
     "lead success",
     "lead retry preserves idempotency",
     "logged-in navigation",

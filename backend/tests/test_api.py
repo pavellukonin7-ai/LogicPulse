@@ -99,6 +99,23 @@ def test_health_and_swagger_contract(client):
     assert schema['paths']['/api/services']['post']['security']
     assert client.get('/api/admin/requests', headers=KEY).headers['cache-control'] == 'no-store'
 
+def test_public_github_projects_are_cached_without_token(client, monkeypatch):
+    from app import github_projects
+    calls = []
+    monkeypatch.setattr(github_projects, '_fetch_public_repositories', lambda: calls.append(True) or [{
+        'name': 'LogicPulse', 'description': 'Public portfolio', 'language': 'Python',
+        'url': 'https://github.com/pavellukonin7-ai/LogicPulse', 'homepage': None,
+        'updated_at': '2026-10-02T08:05:38Z', 'archived': False, 'fork': False,
+    }])
+    github_projects._cache['expires'] = 0
+    first = client.get('/api/projects')
+    second = client.get('/api/projects')
+    assert first.status_code == 200
+    assert first.json()['items'][0]['name'] == 'LogicPulse'
+    assert first.json()['source'] == 'github'
+    assert first.headers['cache-control'].startswith('public, max-age=300')
+    assert len(calls) == 1 and second.json() == first.json()
+
 def test_telegram_outbox_is_atomic_and_idempotent(client, monkeypatch):
     from app.models import TelegramDelivery
     from sqlalchemy import select

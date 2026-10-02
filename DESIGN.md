@@ -115,6 +115,8 @@ The particle ring and footer field follow scroll position and reverse exactly wh
 
 Copy is direct and business-focused. Owned interface text, validation, status, accessibility labels, number grouping, and standard services follow the active locale. Unknown administrator-authored Russian content is preserved with a language note instead of being mistranslated.
 
+The public project registry is a full-width editorial grid rather than a generic GitHub widget. Project titles and reviewed summaries are localized in-product; repository metadata comes through the LogicPulse backend and falls back to a bundled public snapshot. Browser clients never receive a GitHub token, and private repositories are never requested or displayed.
+
 ## Do's and Don'ts
 
 - **Do:** Keep the particle field as the single expressive signature.

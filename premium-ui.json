@@ -1,0 +1,12 @@
+{
+  "profile": "marketing",
+  "sourceRoots": ["frontend"],
+  "ownership": {
+    "Select/Listbox": "native"
+  },
+  "commands": {
+    "build": "cd frontend && npm run build",
+    "test": "cd backend && python -m pytest -q",
+    "browser": "node _living_qa/verify-languages.mjs"
+  }
+}

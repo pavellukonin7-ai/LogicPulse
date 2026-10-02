@@ -6,6 +6,7 @@ import {session,logout} from './session.js';
 import './styles.css';
 import './living-pulse.css';
 import './living-motion.js';
+import './projects.js';
 import './language.css';
 import {t, number, errorSource, validateForm} from './i18n.js';
 import {localizeService, serviceText} from './service-locales.js';

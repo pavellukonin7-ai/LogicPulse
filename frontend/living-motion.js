@@ -9,7 +9,7 @@ if (root) {
   const ring = document.querySelector('.lp-art');
   const contact = document.querySelector('.lp-contact-wrap');
   const field = document.querySelector('.lp-footer-particles');
-  const blocks = [...document.querySelectorAll('.lp-catalog h2, .lp-method h2, .lp-steps li, .lp-contact-intro')]
+  const blocks = [...document.querySelectorAll('.lp-catalog h2, .lp-method h2, .lp-projects h2, .lp-steps li, .lp-contact-intro')]
     .map(element => ({element, shift: 0}));
   let frame = 0;
   let enabled = false;

@@ -16,19 +16,22 @@
   "backend/app/main.py": {
     "accepted": [
       "6650000631af072cc5d0ca38dd530ba10c125117b76fc27029aa7a2a4c0791e0",
-      "814d503ff030a6c5590b408dd22cf98a3e70906606793d262ccdfa9beac9e91c"
+      "814d503ff030a6c5590b408dd22cf98a3e70906606793d262ccdfa9beac9e91c",
+      "e727a1f4180a6cafb758d38646d60dcae216a2a856fc3fdbad3f877aa15d9bd4"
     ],
-    "after": "814d503ff030a6c5590b408dd22cf98a3e70906606793d262ccdfa9beac9e91c"
+    "after": "e727a1f4180a6cafb758d38646d60dcae216a2a856fc3fdbad3f877aa15d9bd4"
   },
   "frontend/account.html": {
     "accepted": [
-      "1a63c0a3db3fadaf01086501723ffb11aa74cb42c3c410038e88a7e8d50d9c39"
+      "1a63c0a3db3fadaf01086501723ffb11aa74cb42c3c410038e88a7e8d50d9c39",
+      "ff196a8df47835651b0a18cb4ad17044c255d53d2af436bd73ca53daa9afdb3e"
     ],
     "after": "ff196a8df47835651b0a18cb4ad17044c255d53d2af436bd73ca53daa9afdb3e"
   },
   "frontend/account.js": {
     "accepted": [
-      "8fe60fdc6d46d2b67b56611525047cfe82e2c5acec7c0ba4c338b5e681b5cf95"
+      "8fe60fdc6d46d2b67b56611525047cfe82e2c5acec7c0ba4c338b5e681b5cf95",
+      "3a859d9c2b123cb2f2fb40cdd2f3499ec065572f7c2fa60b299f1d469b12f062"
     ],
     "after": "3a859d9c2b123cb2f2fb40cdd2f3499ec065572f7c2fa60b299f1d469b12f062"
   },
@@ -37,9 +40,11 @@
       "fc4932465e7c0c1de3ef1c0eb0274511445e608a0c01150dc1d0fdc1dce6748a",
       "e26633db373621921dbfb8c3657666727bf6db88ed7bbf068c0156ccb9c02d69",
       "a3ca62d9304e761b0658be0484cb252ad1d8557301abc1f89868ad28d074faa7",
-      "77ec3b2e069b3678cac3ec32be51475f1d99ab83e4cf8c90dae2b0fe3f0ed528"
+      "77ec3b2e069b3678cac3ec32be51475f1d99ab83e4cf8c90dae2b0fe3f0ed528",
+      "b68481765fc0b715d0181bc20cef5fb4001e97f89287de27fb4e6d5ce15c4d49",
+      "82e82c0208a1e178c65d583a0301bbe205ccf5246c0f424d56cff40696b3b047"
     ],
-    "after": "b68481765fc0b715d0181bc20cef5fb4001e97f89287de27fb4e6d5ce15c4d49"
+    "after": "82e82c0208a1e178c65d583a0301bbe205ccf5246c0f424d56cff40696b3b047"
   },
   "frontend/admin.js": {
     "accepted": [
@@ -60,37 +65,45 @@
       "7e5720e3a49e33e9e171a68d7942023cecd6a99e9d57fa72a70f0d8c614d626a",
       "8ffa01814a21148fbe58447b6cca74951957edc8622aad426f7968726343d6b8",
       "32a39da62dbf3cabce78f47aacb83bd27c1467ba51b81ad9f6275f8af353a997",
-      "5ad193f9982c1d63236304de10dc011bf8e08c387183868c51e029df37b8cc0a"
+      "5ad193f9982c1d63236304de10dc011bf8e08c387183868c51e029df37b8cc0a",
+      "e61e4d5540f83901c8f646dfd129aa4da2c25a32b1227f5887efe7b1b311fabb",
+      "35114a35c9288b56946e7487924ab3feec731db1c13fdbcb0cbb1d6d3c3ac14e"
     ],
-    "after": "e61e4d5540f83901c8f646dfd129aa4da2c25a32b1227f5887efe7b1b311fabb"
+    "after": "35114a35c9288b56946e7487924ab3feec731db1c13fdbcb0cbb1d6d3c3ac14e"
   },
   "frontend/i18n.js": {
     "accepted": [
-      null
+      null,
+      "5043aa8789589cf12d83011217ca37afd25621c2261c914b142b8f6aff81f05d"
     ],
     "after": "5043aa8789589cf12d83011217ca37afd25621c2261c914b142b8f6aff81f05d"
   },
   "frontend/i18n-strings.js": {
     "accepted": [
-      null
+      null,
+      "f6cd90936b33682c9c1e9d1c3db39ad4154941da31c60c3f41a1942f2e2f0748",
+      "be14adc1f454d9de5ea59fce014c34cb9bb6fc892ec96efa4c1c0b77d78023a9"
     ],
-    "after": "f6cd90936b33682c9c1e9d1c3db39ad4154941da31c60c3f41a1942f2e2f0748"
+    "after": "be14adc1f454d9de5ea59fce014c34cb9bb6fc892ec96efa4c1c0b77d78023a9"
   },
   "frontend/language.css": {
     "accepted": [
-      null
+      null,
+      "fc1da60e3b37c9b359012cbe07238165bd9e33085b764f02d86546a2c51cea09"
     ],
     "after": "fc1da60e3b37c9b359012cbe07238165bd9e33085b764f02d86546a2c51cea09"
   },
   "frontend/privacy.html": {
     "accepted": [
-      null
+      null,
+      "59b3f04dea6ce8fca7ee8bcab8c23568c8c5e5dcaf2e55d27eb3e22ea1ffe8aa"
     ],
     "after": "59b3f04dea6ce8fca7ee8bcab8c23568c8c5e5dcaf2e55d27eb3e22ea1ffe8aa"
   },
   "frontend/privacy.js": {
     "accepted": [
-      null
+      null,
+      "bda5288bed29d237198a1da6ee587cb1d73a187f36a54a856ac5374770759b53"
     ],
     "after": "bda5288bed29d237198a1da6ee587cb1d73a187f36a54a856ac5374770759b53"
   },
@@ -110,7 +123,8 @@
   },
   "frontend/service-locales.js": {
     "accepted": [
-      null
+      null,
+      "3596d7fa9c44b266bb95281cd9ff86e5f1a40262cc9ea36464f68e1c238985e4"
     ],
     "after": "3596d7fa9c44b266bb95281cd9ff86e5f1a40262cc9ea36464f68e1c238985e4"
   },
@@ -123,14 +137,16 @@
   },
   "frontend/service-translations.js": {
     "accepted": [
-      null
+      null,
+      "dc5e5b12c856cd2e41213fbda27aedca6453e0db4d761a02004e1e49218b4435"
     ],
     "after": "dc5e5b12c856cd2e41213fbda27aedca6453e0db4d761a02004e1e49218b4435"
   },
   "frontend/living-services.js": {
     "accepted": [
       null,
-      "40e9e2bfa4648aa417874f3f4f1a7c2b1f779c1e66ed36900ff4346b36d81de8"
+      "40e9e2bfa4648aa417874f3f4f1a7c2b1f779c1e66ed36900ff4346b36d81de8",
+      "fbd2b2778e1bba0607d83db4190238cd5f33df63577eac79a95e2c5677e1abc7"
     ],
     "after": "fbd2b2778e1bba0607d83db4190238cd5f33df63577eac79a95e2c5677e1abc7"
   },
@@ -138,20 +154,24 @@
     "accepted": [
       null,
       "396463ec70de85494ae1fd94cae47c08cec870dfe624525bcf89820501de89e7",
-      "3e470f237dc33f18362f73da43b3971805e3829a288195cae29d3a62ad3cbb47"
+      "3e470f237dc33f18362f73da43b3971805e3829a288195cae29d3a62ad3cbb47",
+      "5343ba6d8cafc1c4c29da21923eca4c9e601a30a2455cd4a3f4ed8e9fcbd60e5",
+      "61524d2673bddc5f60989223d05ea0f94ed509ded8f11158c63287ff26bab207"
     ],
-    "after": "5343ba6d8cafc1c4c29da21923eca4c9e601a30a2455cd4a3f4ed8e9fcbd60e5"
+    "after": "61524d2673bddc5f60989223d05ea0f94ed509ded8f11158c63287ff26bab207"
   },
   "frontend/living-motion.js": {
     "accepted": [
       null,
-      "b19e069144de6c8382fa8a5a1c45a5dfa616ea16e9eebc55b8624f63c7ffcfd6"
+      "b19e069144de6c8382fa8a5a1c45a5dfa616ea16e9eebc55b8624f63c7ffcfd6",
+      "20940b2b57924b72426170e4449a813c89170080362d22d23124a2d45c2dfe42"
     ],
-    "after": "b19e069144de6c8382fa8a5a1c45a5dfa616ea16e9eebc55b8624f63c7ffcfd6"
+    "after": "20940b2b57924b72426170e4449a813c89170080362d22d23124a2d45c2dfe42"
   },
   "frontend/vite.config.js": {
     "accepted": [
-      "2b2bef523d379080f1026e1274d8ee936c7efd52f0477d182ef98ad4f6564b0c"
+      "2b2bef523d379080f1026e1274d8ee936c7efd52f0477d182ef98ad4f6564b0c",
+      "db9451e835fb9383d82a20133a90c7dd8f295937821f92e9d39da5730158ef29"
     ],
     "after": "db9451e835fb9383d82a20133a90c7dd8f295937821f92e9d39da5730158ef29"
   },
@@ -206,14 +226,37 @@
   },
   "frontend/public/fonts/noto-sans-sc.woff": {
     "accepted": [
-      null
+      null,
+      "c8f8911b0fb5b1a0bd2bce18dafd7bdb1c85a84fa28f8f427bbab5b2f607bcf9"
     ],
     "after": "c8f8911b0fb5b1a0bd2bce18dafd7bdb1c85a84fa28f8f427bbab5b2f607bcf9"
   },
   "frontend/public/fonts/NotoSansSC-OFL.txt": {
     "accepted": [
-      null
+      null,
+      "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9"
     ],
     "after": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9"
+  },
+  "backend/app/github_projects.py": {
+    "accepted": [
+      null,
+      "408d16972859ca82ad925b739cd202d28b9acd76be6c70ab3b11efe02ceaef93"
+    ],
+    "after": "408d16972859ca82ad925b739cd202d28b9acd76be6c70ab3b11efe02ceaef93"
+  },
+  "frontend/project-translations.js": {
+    "accepted": [
+      null,
+      "289ffbb12382f0099115175e1964f8ed2c1a2c59857b5f8129c2bc86604876f4"
+    ],
+    "after": "289ffbb12382f0099115175e1964f8ed2c1a2c59857b5f8129c2bc86604876f4"
+  },
+  "frontend/projects.js": {
+    "accepted": [
+      null,
+      "f5a6a3b939da60c3a0517fbcde242214719f522c7fca248770b71beb7071d7d2"
+    ],
+    "after": "f5a6a3b939da60c3a0517fbcde242214719f522c7fca248770b71beb7071d7d2"
   }
 }

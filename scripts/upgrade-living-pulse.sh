@@ -27,7 +27,7 @@ container_id="$(docker compose ps -q backend)"
 [[ -n "$container_id" ]] || { echo 'Сначала запустите текущий backend.'; exit 1; }
 old_image="$(docker inspect --format '{{.Image}}' "$container_id")"
 backend_changed=0
-for name in models.py schemas.py main.py; do
+for name in models.py schemas.py main.py github_projects.py; do
   cmp -s "$incoming/backend/app/$name" "backend/app/$name" || backend_changed=1
 done
 image_tag="$(docker compose config --format json | python3 -c 'import json,sys; print(json.load(sys.stdin)["services"]["backend"]["image"])')"
@@ -44,10 +44,10 @@ printf '%s\n' "$old_image" > "$backup.image-id"
 mkdir -p "$stage/backend" "$stage/frontend"
 tar -C backend --exclude=__pycache__ --exclude=.pytest_cache -cf - . | tar -C "$stage/backend" -xf -
 tar -C frontend --exclude=node_modules --exclude=dist -cf - . | tar -C "$stage/frontend" -xf -
-for name in models.py schemas.py main.py; do
+for name in models.py schemas.py main.py github_projects.py; do
   cp "$incoming/backend/app/$name" "$stage/backend/app/$name"
 done
-for name in account.html account.js app.js admin.js admin.html index.html i18n.js i18n-strings.js language.css privacy.html privacy.js service-card.js service-cards.css service-locales.js service-templates.js service-translations.js living-services.js living-pulse.css living-motion.js vite.config.js; do
+for name in account.html account.js app.js admin.js admin.html index.html i18n.js i18n-strings.js language.css privacy.html privacy.js project-translations.js projects.js service-card.js service-cards.css service-locales.js service-templates.js service-translations.js living-services.js living-pulse.css living-motion.js vite.config.js; do
   cp "$incoming/frontend/$name" "$stage/frontend/$name"
 done
 mkdir -p "$stage/frontend/public/art" "$stage/frontend/public/fonts"
@@ -64,6 +64,7 @@ root=Path(sys.argv[1]); html=(root/'index.html').read_text()
 assert 'data-design="living-pulse-static"' in html
 assert 'data-motion-version="1"' in html
 assert 'data-languages="ru,en,zh"' in html
+assert 'id="project-catalog"' in html
 for name in ('account.html','privacy.html'):
     assert (root/name).is_file(), 'Missing page: '+name
 for url in re.findall(r'(?:src|href)="(/(?:assets|art|fonts)/[^"?#]+)',html):
@@ -97,10 +98,10 @@ rollback() {
 }
 trap rollback ERR
 changed=1
-for name in models.py schemas.py main.py; do
+for name in models.py schemas.py main.py github_projects.py; do
   cp "$stage/backend/app/$name" "backend/app/$name"
 done
-for name in account.html account.js app.js admin.js admin.html index.html i18n.js i18n-strings.js language.css privacy.html privacy.js service-card.js service-cards.css service-locales.js service-templates.js service-translations.js living-services.js living-pulse.css living-motion.js vite.config.js; do
+for name in account.html account.js app.js admin.js admin.html index.html i18n.js i18n-strings.js language.css privacy.html privacy.js project-translations.js projects.js service-card.js service-cards.css service-locales.js service-templates.js service-translations.js living-services.js living-pulse.css living-motion.js vite.config.js; do
   cp "$stage/frontend/$name" "frontend/$name"
 done
 mkdir -p frontend/public/art frontend/public/fonts
@@ -126,7 +127,8 @@ with SessionLocal() as db:
     db.execute(text('SELECT count(*) FROM lp_service_details'))
 schema = json.load(urllib.request.urlopen('http://127.0.0.1:8000/openapi.json', timeout=10))
 assert 'delivery_time' in schema['components']['schemas']['ServicePublic']['properties']
-print('OK: API и таблица дополнительных полей услуг готовы.')
+assert '/api/projects' in schema['paths']
+print('OK: API, портфолио GitHub и таблица дополнительных полей услуг готовы.')
 PY
 docker compose exec -T nginx nginx -t
 bash scripts/check.sh
@@ -139,13 +141,15 @@ PY_DOMAIN
 )"
 [[ "$domain" =~ ^[a-zA-Z0-9.-]+$ ]]
 curl --fail --silent --show-error --max-time 20 "https://$domain/" | \
-  python3 -c 'import sys; html=sys.stdin.read(); assert "data-motion-version=\"1\"" in html and "data-languages=\"ru,en,zh\"" in html, "Сайт пока отдаёт прежний HTML"'
+  python3 -c 'import sys; html=sys.stdin.read(); assert "data-motion-version=\"1\"" in html and "data-languages=\"ru,en,zh\"" in html and "id=\"project-catalog\"" in html, "Сайт пока отдаёт прежний HTML"'
 trap - ERR
 mkdir -p docs
 cp "$incoming/docs/LIVING_PULSE.md" docs/LIVING_PULSE.md
 cp "$incoming/docs/SERVICE_CARDS.md" docs/SERVICE_CARDS.md
 cp "$incoming/docs/LANGUAGES.md" docs/LANGUAGES.md
+cp "$incoming/docs/GITHUB_PORTFOLIO.md" docs/GITHUB_PORTFOLIO.md
 echo 'Готово: RU / EN / 中文 установлены. Откройте https://logicpulse.ru/ и обновите страницу Ctrl+F5.'
+echo 'Портфолио GitHub подключено: публичные репозитории обновляются автоматически.'
 echo 'Движение при прокрутке включено. Услуги и цены читаются из вашей базы.'
 echo 'Если цены или сроки ещё не заполнены: Управление → Услуги → Изменить → проверьте поля и сохраните.'
 echo "Резервная копия: $backup"
