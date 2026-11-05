@@ -3,19 +3,21 @@ import {projectCopy} from './project-translations.js';
 
 const profileUrl = 'https://github.com/pavellukonin7-ai';
 const snapshot = [
-  ['LogicPulse', 'Python'],
+  ['SkyPulse-Weather-Bot', 'Python'],
+  ['ProductFlow-AI', 'Python'],
+  ['VK-AI-Assistant', 'Python'],
+  ['The-Traveler-s-Currency', 'Python'],
+  ['LogicPulse-Workspace-Bot', 'Python'],
   ['MindPulse-AI-Docling-Bot', 'Python'],
+  ['LogicPulse', 'Python'],
   ['logicpulse-project-agent', 'Python'],
   ['Dialogue-Report-Service', null],
   ['A-Telegram-bot-with-short-term-and-long-term-memory.', null],
   ['My-Assistant', null],
   ['MindPulse-memory-bot', 'Python'],
   ['text-to-action-assistant', 'Python'],
-  ['The-Traveler-s-Currency', null],
-  ['VK-AI-Assistant', null],
   ['Telegram-AI-Agent-Bot', null],
-  ['AI-Dialogue-Report-Service', null],
-  ['-MCP--', null]
+  ['AI-Dialogue-Report-Service', null]
 ].map(([name, language]) => ({name, language, url: `${profileUrl}/${name}`}));
 
 const catalog = document.querySelector('#project-catalog');
