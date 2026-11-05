@@ -73,11 +73,23 @@ const projects = {
     en: 'An AI service for conversation analysis and structured report generation.',
     zh: '用于对话分析和生成结构化报告的 AI 服务。'
   },
-  '-MCP--': {
-    title: 'MCP Integration',
-    ru: 'Проект интеграции Model Context Protocol и внешних инструментов для AI-систем.',
-    en: 'A project for integrating Model Context Protocol and external tools into AI systems.',
-    zh: '将模型上下文协议（MCP）和外部工具集成到 AI 系统中的项目。'
+  'ProductFlow-AI': {
+    title: 'ProductFlow AI',
+    ru: 'AI-платформа для управления товарами, складом, CRM и заказами с MCP, Telegram, веб-панелью и REST API.',
+    en: 'An AI platform for inventory, warehouse, CRM and order management with MCP, Telegram, Web Admin and REST API.',
+    zh: '集成 MCP、Telegram、网页管理后台和 REST API 的 AI 商品、仓库、CRM 与订单管理平台。'
+  },
+  'LogicPulse-Workspace-Bot': {
+    title: 'LogicPulse Workspace Bot',
+    ru: 'Рабочее пространство в Telegram для задач, командной работы, напоминаний, AI-помощи, QR-кодов и вычислений.',
+    en: 'A Telegram workspace for tasks, teamwork, reminders, AI assistance, QR codes and calculations.',
+    zh: '用于任务、团队协作、提醒、AI 助手、二维码和计算的 Telegram 工作空间。'
+  },
+  'SkyPulse-Weather-Bot': {
+    title: 'SkyPulse Weather Bot',
+    ru: 'Премиальный погодный Telegram-бот с прогнозом дождя, качеством воздуха, сравнением городов и PNG-карточками.',
+    en: 'A premium Telegram weather bot with rain forecasts, air quality, city comparisons and PNG cards.',
+    zh: '高级 Telegram 天气机器人，支持降雨预报、空气质量、城市对比和 PNG 天气卡片。'
   }
 };
 
