@@ -19,19 +19,21 @@ CACHE_SECONDS = 30 * 60
 # Public, non-secret snapshot. It keeps the portfolio useful during GitHub outages
 # and is refreshed from the public GitHub API whenever the cache expires.
 SNAPSHOT = [
-    {'name': 'LogicPulse', 'description': 'Профессиональная многоязычная платформа для ИТ-компании на базе FastAPI, PostgreSQL и Docker с интерфейсом на русском, английском и китайском языках.', 'language': 'Python'},
+    {'name': 'SkyPulse-Weather-Bot', 'description': 'Премиальный Telegram-бот SkyPulse: текущая погода, прогноз дождя, качество воздуха, сравнение городов и мобильные PNG-карточки.', 'language': 'Python'},
+    {'name': 'ProductFlow-AI', 'description': 'AI-powered inventory, warehouse, CRM and order-management platform built with MCP, Telegram, Web Admin and REST API.', 'language': 'Python'},
+    {'name': 'VK-AI-Assistant', 'description': None, 'language': 'Python'},
+    {'name': 'The-Traveler-s-Currency', 'description': None, 'language': 'Python'},
+    {'name': 'LogicPulse-Workspace-Bot', 'description': 'Рабочее пространство в Telegram для личных задач, командного взаимодействия, напоминаний, помощи ИИ, создания QR-кодов и вычислений.', 'language': 'Python'},
     {'name': 'MindPulse-AI-Docling-Bot', 'description': 'Профессиональный Telegram-ассистент с технологией RAG для анализа документов на базе Docling, Pinecone и ProxyAPI.', 'language': 'Python'},
-    {'name': 'logicpulse-project-agent', 'description': 'ИИ-агент для структурированного анализа программных проектов, оценки сроков, вызова инструментов и сохранения истории диалога.', 'language': 'Python'},
+    {'name': 'LogicPulse', 'description': 'Профессиональная многоязычная платформа для ИТ-компании на базе FastAPI, PostgreSQL и Docker с интерфейсом на русском, английском и китайском языках.', 'language': 'Python'},
+    {'name': 'logicpulse-project-agent', 'description': 'Готовый к промышленному использованию ИИ-агент для структурированного анализа программных проектов, детерминированной оценки сроков выполнения, вызова внешних инструментов и сохранения истории диалога.', 'language': 'Python'},
     {'name': 'Dialogue-Report-Service', 'description': None, 'language': None},
     {'name': 'A-Telegram-bot-with-short-term-and-long-term-memory.', 'description': None, 'language': None},
     {'name': 'My-Assistant', 'description': 'Мультимодальный Telegram-бот через ProxyAPI с поддержкой OpenAI и Anthropic (Claude).', 'language': None},
     {'name': 'MindPulse-memory-bot', 'description': 'Профессиональный AI-ассистент для Telegram с долговременной памятью Pinecone и семантическим поиском.', 'language': 'Python'},
-    {'name': 'text-to-action-assistant', 'description': 'AI-веб-приложение, которое преобразует неструктурированный текст в задачи и заметки с проверкой и журналом аудита.', 'language': 'Python'},
-    {'name': 'The-Traveler-s-Currency', 'description': None, 'language': None},
-    {'name': 'VK-AI-Assistant', 'description': None, 'language': None},
+    {'name': 'text-to-action-assistant', 'description': 'Веб-приложение на базе искусственного интеллекта, которое преобразует неструктурированный текст в структурированные задачи и заметки с проверкой, контролем со стороны человека и ведением журнала аудита.', 'language': 'Python'},
     {'name': 'Telegram-AI-Agent-Bot', 'description': None, 'language': None},
     {'name': 'AI-Dialogue-Report-Service', 'description': None, 'language': None},
-    {'name': '-MCP--', 'description': None, 'language': None},
 ]
 
 
